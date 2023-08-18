@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'application'
+    id 'jacoco'
+    id 'checkstyle'
 }
 
 group = 'hexlet.cod'
@@ -31,4 +33,15 @@ compileJava {
 run {
     standardInput = System.in
 }
+
+
+jacoco {
+    toolVersion = "0.8.9"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+
+
+
+
 
