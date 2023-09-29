@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 import java.util.Scanner;
 
 public class Greet {
@@ -19,9 +19,5 @@ public class Greet {
     public static void main(String[] args) {
         printGreet();
         System.out.println(userName);
-
-
     }
-
-
 }

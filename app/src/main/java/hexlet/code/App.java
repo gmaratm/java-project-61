@@ -1,4 +1,7 @@
 package hexlet.code;
+import hexlet.code.games.Even;
+import hexlet.code.games.Greet;
+
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
