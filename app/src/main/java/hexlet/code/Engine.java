@@ -6,7 +6,6 @@ import java.util.Random;
 import hexlet.code.games.Calc;
 
 public class Engine {
-
     public static String userName;
 
     public static void Greet() {
@@ -18,6 +17,7 @@ public class Engine {
         System.out.println("Hello, " + obj.userName + "!");
         System.out.println(Calc.rule0);
     }
+
     public static void rounds(){
         for (int i = 0; i < 3; i++){
 
@@ -26,23 +26,25 @@ public class Engine {
             System.out.print("Your answer: ");
 
             int t = sc.nextInt();
+
             //int tA = Integer.parseInt(Calc.emptyArray[i][1]);
 
             if (t == Integer.parseInt(Calc.emptyArray[i][1])){
-                System.out.println(Calc.rule1);
+                System.out.println("Correct!");
             }
             else if (t != Integer.parseInt(Calc.emptyArray[i][1])){
-                System.out.println(Calc.rule2);
+                System.out.println("'" + t + "'" + " is wrong answer ;(. Correct answer was " + "'" + Calc.emptyArray [i][1] + "'.\n" +
+                        "Let's try again, " + userName + "!");
                 System.exit(0);
             }
-            System.out.println(Calc.rule3);
+
         }
+        System.out.println("Congratulations, " + userName + "!");
     }
 
-    /* тут должен быть код обрабатывающий игру!*/
 
     public static void main(String[] args) {
         Greet();
+        //rounds();
     }
-
 }
