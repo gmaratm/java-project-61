@@ -1,6 +1,6 @@
 package hexlet.code.games;
+
 import java.util.Scanner;
-import hexlet.code.App;
 
 public class Greet {
     public static String userName;
