@@ -38,7 +38,7 @@ public class Progression {
             }
             ArrayStringW[z] = ". .";
 
-            emptyArray [i][0] =  Arrays.toString(ArrayStringW);
+            emptyArray [i][0] =  Arrays.toString(ArrayStringW).replace('[', ' ').replace(']', ' ');
             emptyArray [i][1] =  ArrayString [z];
         }
         return emptyArray;
