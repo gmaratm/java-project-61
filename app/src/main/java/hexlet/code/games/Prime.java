@@ -1,30 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
+
 public class Prime {
-    public static String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static boolean simpleNum(int x) {
-       // int[] number = new int[x];
-        boolean t = true;
+    private static String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    private static boolean calculatePrimeNumber(int x) {
+        boolean logicalVar = true;
         for (int i = 2; i <= x / 2; i++) {
             if (x % i == 0) {
-                t = false;
+                logicalVar = false;
                 break;
             } else {
-                t = true;
+                logicalVar = true;
             }
         }
-        return t;
+        return logicalVar;
     }
 
-    public static String[][] quesAnsw() {
+    private static String[][] askAnswer() {
         String[][] emptyArray =  new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int min2 = 0;
-            int max2 = 100;
-            int x = (int) (Math.random() * (max2 + 1 - min2) + min2);
+            int x = Util.util(0, 100);
             emptyArray[i][0] = x  + " ";
-            if (simpleNum(x)) {
+            if (calculatePrimeNumber(x)) {
                 emptyArray[i][1] = "yes";
             } else {
                 emptyArray[i][1] = "no";
@@ -34,9 +34,9 @@ public class Prime {
     }
 
     public static void runPrime() {
-        Engine.greet(rule);
-        Engine.rounds(quesAnsw());
+        Engine.playGames(askAnswer(), rule);
     }
+
     public static void main(String[] args) {
         runPrime();
     }

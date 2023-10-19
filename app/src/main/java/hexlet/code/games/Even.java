@@ -1,32 +1,32 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-public class Even {
-    public static String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+import hexlet.code.Util;
 
-    public static String evenOdd(int x) {
+public class Even {
+    private static String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
+    private static String calculateEven(int x) {
         if (x % 2 == 0) {
             return "yes";
         }
         return "no";
     }
 
-    public static String[][] quesAnsw() {
+    private static String[][] askAnswer() {
         String[][] emptyArray =  new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int min2 = 0;
-            int max2 = 100;
-            int x = (int) (Math.random() * (max2 + 1 - min2) + min2);
+            int x = Util.util(0, 100);
             emptyArray[i][0] = x + "";
-            emptyArray[i][1] = evenOdd(x);
+            emptyArray[i][1] = calculateEven(x);
         }
         return emptyArray;
     }
+
     public static void runEven() {
-        quesAnsw();
-        Engine.greet(rule);
-        Engine.rounds(quesAnsw());
+        Engine.playGames(askAnswer(), rule);
     }
+
     public static void main(String[] args) {
         runEven();
     }

@@ -1,53 +1,50 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Calc {
-    public static String rule = "What is the result of the expression?";
-    public static char rs() {
-        int min = 0;
-        int max = 2;
-        int rN = (int) (Math.random() * (max + 1 - min) + min);
-        String signs = "+-*";
-        char ch = signs.charAt(rN);
-        return ch;
-    }
-    public static int mo(int x, int y, char ch) {
+    private static String rule = "What is the result of the expression?";
 
-        int result = 0;
-        switch (ch) {
-            case ('+'):
-                result =  x + y;
-                break;
-            case ('-'):
-                result =  x - y;
-                break;
-            case ('*'):
-                result =  x * y;
-                break;
-            default:
-                break;
-        }
-        return result;
+    private static char chooseSymbol() {
+        int randomNum = Util.util(0, 2);
+        String signs = "+-*";
+        char symbol = signs.charAt(randomNum);
+        return symbol;
     }
-    public static String[][] quesAnsw() {
+
+    private static int calculate(int x, int y, char symbol) {
+        int result = 0;
+        switch (symbol) {
+            case '+' -> {
+                return  x + y;
+            }
+            case '-' -> {
+                return  x - y;
+            }
+            case '*' -> {
+                return  x * y;
+            }
+            default -> throw new UnsupportedOperationException("Current operator is not support:" + symbol);
+        }
+    }
+
+    private static String[][] askAnswer() {
         String[][] emptyArray =  new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int min2 = 0;
-            int max2 = 100;
-            int x = (int) (Math.random() * (max2 + 1 - min2) + min2);
-            int y = (int) (Math.random() * (max2 + 1 - min2) + min2);
-            char ch = rs();
-            emptyArray[i][0] = x + " " + ch + " " + y;
-            emptyArray[i][1] = mo(x, y, ch) + "";
+            int x = Util.util(0, 100);
+            int y = Util.util(0, 100);
+            char symbol = chooseSymbol();
+            emptyArray[i][0] = x + " " + symbol + " " + y;
+            emptyArray[i][1] = calculate(x, y, symbol) + "";
         }
         return   emptyArray;
     }
+
     public static void runCalc() {
-        quesAnsw();
-        Engine.greet(rule);
-        Engine.rounds(quesAnsw());
+        Engine.playGames(askAnswer(), rule);
     }
+
     public static void main(String[] args) {
         runCalc();
     }

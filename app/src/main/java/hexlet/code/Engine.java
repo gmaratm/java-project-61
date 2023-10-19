@@ -3,27 +3,25 @@ package hexlet.code;
 import java.util.Scanner;
 public class Engine {
     public static String userName;
-    public static void greet(String rule) {
-        Engine obj = new Engine();
+
+    public static void playGames(String[][] emptyArray, String rule) {
         System.out.println("Welcome to the Brain Games!");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner1 = new Scanner(System.in);
         System.out.print("May I have your name? ");
-        obj.userName  = scanner.next();
-        System.out.println("Hello, " + obj.userName + "!");
+        userName  = scanner1.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println(rule);
-    }
-    public static void rounds(String[][] emptyArray) {
         for (int i = 0; i < 3; i++) {
-            Scanner sc = new Scanner(System.in);
+            Scanner scanner2 = new Scanner(System.in);
             System.out.println("Question: " + emptyArray[i][0]);
             System.out.print("Your answer: ");
-            String t = sc.next();
-            if (t.equals(emptyArray[i][1])) {
+            String answer = scanner2.next();
+            if (answer.equals(emptyArray[i][1])) {
                 System.out.println("Correct!");
-            } else if (!t.equals(emptyArray[i][1])) {
-                System.out.println("'" + t + "'" + " is wrong answer ;(. Correct answer was " + "'"
+            } else if (!answer.equals(emptyArray[i][1])) {
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'"
                         + emptyArray[i][1] + "'.\n" + "Let's try again, " + userName + "!");
-                System.exit(0);
+                return;
             }
         }
         System.out.println("Congratulations, " + userName + "!");

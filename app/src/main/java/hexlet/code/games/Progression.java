@@ -1,49 +1,48 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 import java.util.Arrays;
+
 public class Progression {
-    public static String rule = "What number is missing in the progression?";
-    public static String[] array(int x, int y) {
-        int[] progressIntarray =  new int[10];
-        for (int i = 0; i < 10; i++) {
-            progressIntarray[i] = x;
+    private static String rule = "What number is missing in the progression?";
+    private static int randomArrayLength = Util.util(5, 10);
+
+    private static String[] calculateArrayProgress(int x, int y) {
+        int[] progressIntArray =  new int[randomArrayLength];
+        for (int i = 0; i < randomArrayLength; i++) {
+            progressIntArray[i] = x;
             x = x + y;
         }
-        String[] progressStrArray =  new String[10];
-        for (int i = 0; i < 10; i++) {
-            progressStrArray[i] = Integer.toString(progressIntarray[i]);
+        String[] progressStrArray =  new String[randomArrayLength];
+        for (int i = 0; i < randomArrayLength; i++) {
+            progressStrArray[i] = Integer.toString(progressIntArray[i]);
         }
         return progressStrArray;
     } // Массив прогрессия
-    public static String[][] quesAnsw() {
+
+    private static String[][] askAnswer() {
         String[][] emptyArray =  new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int min1 = 0;
-            int max1 = 100;
-            int min2 = 2;
-            int max2 = 10;
-            int min3 = 0;
-            int max3 = 9;
-            int x = (int) (Math.random() * (max1 + 1 - min2) + min1);
-            int y = (int) (Math.random() * (max2 + 1 - min2) + min2);
-            int z = (int) (Math.random() * (max3 + 1 - min3) + min3);
-            String[] arrayString = array(x, y);
-            String[] arrayStringW = new String[10];
-            for (int j = 0; j < 10; j++) {
+            int x = Util.util(0, 100);
+            int y = Util.util(2, 10);
+            int z = Util.util(0, randomArrayLength - 1);
+            String[] arrayString = calculateArrayProgress(x, y);
+            String[] arrayStringW = new String[randomArrayLength];
+            for (int j = 0; j < randomArrayLength; j++) {
                 arrayStringW[j] = arrayString[j];
             }
-            arrayStringW[z] = ". .";
-            emptyArray[i][0] =  Arrays.toString(arrayStringW).replace('[', ' ').replace(']', ' ');
+            arrayStringW[z] = "..";
+            emptyArray[i][0] =  Arrays.toString(arrayStringW).replace('[', ' ').replace(']', ' ').replace(',', ' ');
             emptyArray[i][1] =  arrayString[z];
         }
         return emptyArray;
     }
+
     public static void runProgression() {
-        quesAnsw();
-        Engine.greet(rule);
-        Engine.rounds(quesAnsw());
+        Engine.playGames(askAnswer(), rule);
     }
+
     public static void main(String[] args) {
         runProgression();
     }
