@@ -67,11 +67,12 @@ public class GCD {
     } // перемножение всех элементов массива;
 
     private static String[][] askAnswer() {
-        String[][] emptyArray =  new String[3][2];
-
-        for (int i = 0; i < 3; i++) {
-            int x = Util.util(0, 100);
-            int y = Util.util(0, 100);
+        int numberOfQues = 3;
+        String[][] emptyArray =  new String[numberOfQues][2];
+        for (int i = 0; i < numberOfQues; i++) {
+            int randomNumbers = 100;
+            int x = Util.util(0, randomNumbers);
+            int y = Util.util(0, randomNumbers);
             emptyArray[i][0] = x + " " + y;
             if (x == 0 && y != 0) {
                 emptyArray[i][1] = y + "";

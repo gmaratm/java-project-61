@@ -6,7 +6,9 @@ import java.util.Arrays;
 
 public class Progression {
     private static String rule = "What number is missing in the progression?";
-    private static int randomArrayLength = Util.util(5, 10);
+    private static int minElements = 5;
+    private static int recommendationElements = 10;
+    private static int randomArrayLength = Util.util(minElements, recommendationElements);
 
     private static String[] calculateArrayProgress(int x, int y) {
         int[] progressIntArray =  new int[randomArrayLength];
@@ -22,10 +24,13 @@ public class Progression {
     } // Массив прогрессия
 
     private static String[][] askAnswer() {
-        String[][] emptyArray =  new String[3][2];
-        for (int i = 0; i < 3; i++) {
-            int x = Util.util(0, 100);
-            int y = Util.util(2, 10);
+        int numberOfQues = 3;
+        String[][] emptyArray =  new String[numberOfQues][2];
+        for (int i = 0; i < numberOfQues; i++) {
+            int randomNumbers = 100;
+            int addNumbers = 10;
+            int x = Util.util(0, randomNumbers);
+            int y = Util.util(2, addNumbers);
             int z = Util.util(0, randomArrayLength - 1);
             String[] arrayString = calculateArrayProgress(x, y);
             String[] arrayStringW = new String[randomArrayLength];

@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 public class Engine {
-    public static String userName;
+    private static String userName;
 
     public static void playGames(String[][] emptyArray, String rule) {
         System.out.println("Welcome to the Brain Games!");
@@ -11,7 +11,8 @@ public class Engine {
         userName  = scanner1.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(rule);
-        for (int i = 0; i < 3; i++) {
+        int numberOfQues = 3;
+        for (int i = 0; i < numberOfQues; i++) {
             Scanner scanner2 = new Scanner(System.in);
             System.out.println("Question: " + emptyArray[i][0]);
             System.out.print("Your answer: ");

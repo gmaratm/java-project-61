@@ -14,9 +14,11 @@ public class Even {
     }
 
     private static String[][] askAnswer() {
-        String[][] emptyArray =  new String[3][2];
-        for (int i = 0; i < 3; i++) {
-            int x = Util.util(0, 100);
+        int numberOfQues = 3;
+        String[][] emptyArray =  new String[numberOfQues][2];
+        for (int i = 0; i < numberOfQues; i++) {
+            int randomNumbers = 100;
+            int x = Util.util(0, randomNumbers);
             emptyArray[i][0] = x + "";
             emptyArray[i][1] = calculateEven(x);
         }
