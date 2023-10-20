@@ -8,12 +8,16 @@ public class Prime {
 
     private static boolean calculatePrimeNumber(int x) {
         boolean logicalVar = true;
-        for (int i = 2; i <= x / 2; i++) {
-            if (x % i == 0) {
-                logicalVar = false;
-                break;
-            } else {
-                logicalVar = true;
+        if (x == 1) {
+            logicalVar = false;
+        } else {
+            for (int i = 2; i <= x / 2; i++) {
+                if (x % i == 0) {
+                    logicalVar = false;
+                    break;
+                } else {
+                    logicalVar = true;
+                }
             }
         }
         return logicalVar;
