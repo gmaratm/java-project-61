@@ -33,6 +33,8 @@ public class Progression {
                 arrayStringW[j] = arrayString[j];
             }
             arrayStringW[z] = "..";
+            String question = Arrays.toString(arrayStringW);
+            emptyArray[i][0] =  question.substring(1, question.length() - 1).replaceAll(", ", " ");
             emptyArray[i][0] =  Arrays.toString(arrayStringW).replace('[', ' ').replace(']', ' ').replace(',', ' ');
             emptyArray[i][1] =  arrayString[z];
         }
