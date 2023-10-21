@@ -7,7 +7,7 @@ public class Prime {
     private static String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static boolean calculatePrimeNumber(int x) {
-        boolean logicalVar = true;
+        boolean logicalVar = false;
         if (x == 1) {
             logicalVar = false;
         } else {
