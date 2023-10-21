@@ -8,7 +8,7 @@ public class Prime {
 
     private static boolean calculatePrimeNumber(int x) {
         boolean logicalVar = false;
-        if (x == 1) {
+        if (x <= 1) {
             logicalVar = false;
         } else {
             for (int i = 2; i <= x / 2; i++) {
@@ -27,8 +27,9 @@ public class Prime {
         int numberOfQues = 3;
         String[][] emptyArray =  new String[numberOfQues][2];
         for (int i = 0; i < numberOfQues; i++) {
-            int randomNumbers = 100;
-            int x = Util.util(0, randomNumbers);
+            int randomNumbersMin = -100;
+            int randomNumbersMax = 100;
+            int x = Util.util(randomNumbersMin, randomNumbersMax);
             emptyArray[i][0] = x  + " ";
             if (calculatePrimeNumber(x)) {
                 emptyArray[i][1] = "yes";
