@@ -6,6 +6,7 @@ import hexlet.code.Util;
 public class Even {
     private static String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
+
     private static String calculateEven(int x) {
         if (x % 2 == 0) {
             return "yes";
@@ -14,9 +15,8 @@ public class Even {
     }
 
     private static String[][] askAnswer() {
-        int numberOfQues = 3;
-        String[][] emptyArray =  new String[numberOfQues][2];
-        for (int i = 0; i < numberOfQues; i++) {
+        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
             int randomNumbers = 100;
             int x = Util.util(0, randomNumbers);
             emptyArray[i][0] = x + "";

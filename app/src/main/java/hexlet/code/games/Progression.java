@@ -5,10 +5,13 @@ import hexlet.code.Util;
 import java.util.Arrays;
 
 public class Progression {
+    private static final int MIN_ELEMENT = 5;
+    private static final int REC_ELEMENT = 10;
+    private static final int RANDOM_NUMBER = 100;
+    private static final int ADD_NUMBERS = 10;
+
     private static String rule = "What number is missing in the progression?";
-    private static int minElements = 5;
-    private static int recommendationElements = 10;
-    private static int randomArrayLength = Util.util(minElements, recommendationElements);
+    private static int randomArrayLength = Util.util(MIN_ELEMENT, REC_ELEMENT);
 
     private static String[] calculateArrayProgress(int x, int y) {
         int[] progressIntArray =  new int[randomArrayLength];
@@ -24,13 +27,10 @@ public class Progression {
     } // Массив прогрессия
 
     private static String[][] askAnswer() {
-        int numberOfQues = 3;
-        String[][] emptyArray =  new String[numberOfQues][2];
-        for (int i = 0; i < numberOfQues; i++) {
-            int randomNumbers = 100;
-            int addNumbers = 10;
-            int x = Util.util(0, randomNumbers);
-            int y = Util.util(2, addNumbers);
+        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
+            int x = Util.util(0, RANDOM_NUMBER);
+            int y = Util.util(2, ADD_NUMBERS);
             int z = Util.util(0, randomArrayLength - 1);
             String[] arrayString = calculateArrayProgress(x, y);
             String[] arrayStringW = new String[randomArrayLength];

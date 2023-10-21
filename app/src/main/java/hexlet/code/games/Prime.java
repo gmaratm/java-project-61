@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Prime {
+    public final static int RANDOM_NUMBER_MIN = -100;
+    public final static int RANDOM_NUMBER_MAX = 100;
     private static String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static boolean calculatePrimeNumber(int x) {
@@ -24,12 +26,9 @@ public class Prime {
     }
 
     private static String[][] askAnswer() {
-        int numberOfQues = 3;
-        String[][] emptyArray =  new String[numberOfQues][2];
-        for (int i = 0; i < numberOfQues; i++) {
-            int randomNumbersMin = -100;
-            int randomNumbersMax = 100;
-            int x = Util.util(randomNumbersMin, randomNumbersMax);
+        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
+            int x = Util.util(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
             emptyArray[i][0] = x  + " ";
             if (calculatePrimeNumber(x)) {
                 emptyArray[i][1] = "yes";

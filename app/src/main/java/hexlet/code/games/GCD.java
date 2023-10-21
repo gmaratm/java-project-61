@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class GCD {
+    private final static int RANDOM_NUMBER = 100;
     private static String rule = "Find the greatest common divisor of given numbers.";
     private static int findGCD(int x, int y) {
         int[] arrayX = createArrayGCD(x);
@@ -67,12 +68,10 @@ public class GCD {
     } // перемножение всех элементов массива;
 
     private static String[][] askAnswer() {
-        int numberOfQues = 3;
-        String[][] emptyArray =  new String[numberOfQues][2];
-        for (int i = 0; i < numberOfQues; i++) {
-            int randomNumbers = 100;
-            int x = Util.util(0, randomNumbers);
-            int y = Util.util(0, randomNumbers);
+        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
+            int x = Util.util(0, RANDOM_NUMBER);
+            int y = Util.util(0, RANDOM_NUMBER);
             emptyArray[i][0] = x + " " + y;
             if (x == 0 && y != 0) {
                 emptyArray[i][1] = y + "";

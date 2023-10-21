@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Calc {
+    private static final int RANDOM_NUMBER = 100;
     private static String rule = "What is the result of the expression?";
 
     private static char chooseSymbol() {
@@ -30,12 +31,10 @@ public class Calc {
     }
 
     private static String[][] askAnswer() {
-        int numberOfQues = 3;
-        String[][] emptyArray =  new String[numberOfQues][2];
-        for (int i = 0; i < numberOfQues; i++) {
-            int randomNumbers = 100;
-            int x = Util.util(0, randomNumbers);
-            int y = Util.util(0, randomNumbers);
+        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
+            int x = Util.util(0, RANDOM_NUMBER);
+            int y = Util.util(0, RANDOM_NUMBER);
             char symbol = chooseSymbol();
             emptyArray[i][0] = x + " " + symbol + " " + y;
             emptyArray[i][1] = calculate(x, y, symbol) + "";
