@@ -4,9 +4,9 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Prime {
-    public final static int RANDOM_NUMBER_MIN = -100;
-    public final static int RANDOM_NUMBER_MAX = 100;
     private static String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int RANDOM_NUMBER_MIN = -1000;
+    private static final int RANDOM_NUMBER_MAX = 1000;
 
     private static boolean calculatePrimeNumber(int x) {
         boolean logicalVar = false;

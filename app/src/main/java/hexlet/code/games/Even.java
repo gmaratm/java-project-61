@@ -6,7 +6,6 @@ import hexlet.code.Util;
 public class Even {
     private static String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-
     private static String calculateEven(int x) {
         if (x % 2 == 0) {
             return "yes";

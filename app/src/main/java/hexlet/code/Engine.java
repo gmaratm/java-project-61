@@ -2,8 +2,8 @@ package hexlet.code;
 
 import java.util.Scanner;
 public class Engine {
-    public final static int NUMBER_ROUNDS = 3;
     private static String userName;
+    public static final int NUMBER_ROUNDS = 3;
     public static void playGames(String[][] emptyArray, String rule) {
         System.out.println("Welcome to the Brain Games!");
         Scanner scanner1 = new Scanner(System.in);

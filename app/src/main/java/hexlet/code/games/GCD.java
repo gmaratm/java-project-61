@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class GCD {
-    private final static int RANDOM_NUMBER = 100;
     private static String rule = "Find the greatest common divisor of given numbers.";
+    private static final int RANDOM_NUMBER = 100;
     private static int findGCD(int x, int y) {
         int[] arrayX = createArrayGCD(x);
         int[] arrayY = createArrayGCD(y);
