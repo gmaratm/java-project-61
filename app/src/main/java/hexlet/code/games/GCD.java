@@ -8,29 +8,12 @@ public class GCD {
     private static final int RANDOM_NUMBER = 100;
 
     public static int findGCD(int x, int y) {
-        int t = 0;
-        if (x > y) {
-            for (int i = 0; i < x; i++) {
-                t = x % y;
-                if (t == 0) {
-                    t = y;
-                } else {
-                    x = y;
-                    y = t;
-                }
-            }
-        } else {
-            for (int i = 0; i < y; i++) {
-                t = y % x;
-                if (t == 0) {
-                    t = x;
-                } else {
-                    y = x;
-                    x = t;
-                }
-            }
+        while (y != 0) {
+            int t = x % y;
+            x = y;
+            y = t;
         }
-        return t;
+        return x;
     }
 
     private static String[][] createGameData() {
