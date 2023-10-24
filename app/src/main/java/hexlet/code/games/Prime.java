@@ -25,25 +25,17 @@ public class Prime {
         return logicalVar;
     }
 
-    private static String[][] askAnswer() {
+    private static String[][] createGameData() {
         String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
         for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
-            int x = Util.util(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+            int x = Util.createRandom(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
             emptyArray[i][0] = x  + " ";
-            if (calculatePrimeNumber(x)) {
-                emptyArray[i][1] = "yes";
-            } else {
-                emptyArray[i][1] = "no";
-            }
+            emptyArray[i][1] = (calculatePrimeNumber(x)) ? "yes" : "no";
         }
         return emptyArray;
     }
 
     public static void runPrime() {
-        Engine.playGames(askAnswer(), rule);
-    }
-
-    public static void main(String[] args) {
-        runPrime();
+        Engine.playGames(createGameData(), rule);
     }
 }

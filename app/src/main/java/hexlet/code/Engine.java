@@ -2,9 +2,9 @@ package hexlet.code;
 
 import java.util.Scanner;
 public class Engine {
-    private static String userName;
     public static final int NUMBER_ROUNDS = 3;
     public static void playGames(String[][] emptyArray, String rule) {
+        String userName;
         System.out.println("Welcome to the Brain Games!");
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("May I have your name? ");
@@ -18,7 +18,7 @@ public class Engine {
             String answer = scanner2.next();
             if (answer.equals(emptyArray[i][1])) {
                 System.out.println("Correct!");
-            } else if (!answer.equals(emptyArray[i][1])) {
+            } else {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'"
                         + emptyArray[i][1] + "'.\n" + "Let's try again, " + userName + "!");
                 return;
