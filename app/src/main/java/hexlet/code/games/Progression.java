@@ -32,10 +32,11 @@ public class Progression {
             int stepNumber = Util.createRandom(2, ADD_NUMBERS);
             int emptyCell = Util.createRandom(0, cellsNumber - 1);
             String[] arrayString = calculateArrayProgress(firstNumber, stepNumber, cellsNumber);
-            emptyArray[i][1] =  arrayString[emptyCell];
+            String answer = arrayString[emptyCell];
             arrayString[emptyCell] = "..";
             String question = Arrays.toString(arrayString);
             emptyArray[i][0] =  question.substring(1, question.length() - 1).replaceAll(", ", " ");
+            emptyArray[i][1] = answer;
         }
         return emptyArray;
     }
