@@ -5,33 +5,18 @@ lint:
 	make -C app lint
 
 clean:
-	./gradlew clean
+	make -C app clean
 
 build:
-	./gradlew clean build
+	make -C app build
 
 install:
-	./gradlew clean install
-
-run-dist:
-	./build/install/java-package/bin/java-package
+	make -C app install
 
 run:
-	./gradlew run
+	make -C app run
 
 test:
-	./gradlew test
-
-report:
-	./gradlew jacocoTestReport
-
-lint:
-	./gradlew checkstyleMain
-
-update-deps:
-	./gradlew useLatestVersions
-
-
-build-run: build run
+	make -C app test
 
 .PHONY: build
