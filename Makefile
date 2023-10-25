@@ -1,4 +1,8 @@
-.DEFAULT_GOAL := build-run
+run-dist:
+	make -C app run-dist
+
+lint:
+	make -C app lint
 
 clean:
 	./gradlew clean

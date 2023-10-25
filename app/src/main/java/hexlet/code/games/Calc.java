@@ -14,6 +14,10 @@ public class Calc {
         return symbol;
     }
 
+    public static void runCalc() {
+        Engine.playGames(createGameData(), rule);
+    }
+
     private static int calculate(int x, int y, char symbol) {
         int result = 0;
         switch (symbol) {
@@ -31,19 +35,15 @@ public class Calc {
     }
 
     private static String[][] createGameData() {
-        String[][] emptyArray = new String[Engine.NUMBER_ROUNDS][2];
+        String[][] gameData = new String[Engine.NUMBER_ROUNDS][2];
         for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
             int x = Util.createRandom(0, RANDOM_NUMBER);
             int y = Util.createRandom(0, RANDOM_NUMBER);
             char symbol = chooseSymbol();
-            emptyArray[i][0] = x + " " + symbol + " " + y;
-            emptyArray[i][1] = calculate(x, y, symbol) + "";
+            gameData[i][0] = x + " " + symbol + " " + y;
+            gameData[i][1] = Integer.toString(calculate(x, y, symbol));
         }
-        return emptyArray;
-    }
-
-    public static void runCalc() {
-        Engine.playGames(createGameData(), rule);
+        return gameData;
     }
 }
 

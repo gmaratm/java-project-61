@@ -8,6 +8,10 @@ public class Prime {
     private static final int RANDOM_NUMBER_MIN = -1000;
     private static final int RANDOM_NUMBER_MAX = 1000;
 
+    public static void runPrime() {
+        Engine.playGames(createGameData(), rule);
+    }
+
     private static boolean calculatePrimeNumber(int x) {
         boolean logicalVar = false;
         if (x <= 1) {
@@ -26,16 +30,12 @@ public class Prime {
     }
 
     private static String[][] createGameData() {
-        String[][] emptyArray =  new String[Engine.NUMBER_ROUNDS][2];
+        String[][] gameData =  new String[Engine.NUMBER_ROUNDS][2];
         for (int i = 0; i < Engine.NUMBER_ROUNDS; i++) {
             int x = Util.createRandom(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
-            emptyArray[i][0] = x  + " ";
-            emptyArray[i][1] = (calculatePrimeNumber(x)) ? "yes" : "no";
+            gameData[i][0] = Integer.toString(x);
+            gameData[i][1] = (calculatePrimeNumber(x)) ? "yes" : "no";
         }
-        return emptyArray;
-    }
-
-    public static void runPrime() {
-        Engine.playGames(createGameData(), rule);
+        return gameData;
     }
 }
